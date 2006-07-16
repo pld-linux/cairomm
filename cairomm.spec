@@ -50,6 +50,7 @@ Statyczna biblioteka cairomm.
 %setup -q
 
 %build
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure
 %{__make}
 
