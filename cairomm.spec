@@ -1,16 +1,23 @@
+#
+%define		snap 20060818
+#
 Summary:	C++ wrapper for cairo
 Summary(pl):	Interfejs C++ do cairo
 Name:		cairomm
-Version:	1.1.10
-Release:	1
+Version:	1.1.12
+Release:	0.%{snap}.1
 License:	LGPL v2+
 Group:		Libraries
 #Source0:	http://cairographics.org/releases/%{name}-%{version}.tar.gz
-Source0:	http://cairographics.org/snapshots/%{name}-%{version}.tar.gz
-# Source0-md5:	b418d2e22c02f6890b76354488f13447
+#Source0:	http://cairographics.org/snapshots/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}-%{snap}.tar.bz2
+# Source0-md5:	09d535bee7ca253c9a4a7292917f4c7b
 URL:		http://cairographics.org/
-BuildRequires:	cairo-devel >= 1.2.0
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	cairo-devel >= 1.2.2
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -25,7 +32,7 @@ Summary:	Development files for cairomm library
 Summary(pl):	Pliki programistyczne biblioteki cairomm
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	cairo-devel >= 1.2.0
+Requires:	cairo-devel >= 1.2.2
 Requires:	libstdc++-devel
 
 %description devel
@@ -50,7 +57,10 @@ Statyczna biblioteka cairomm.
 %setup -q
 
 %build
-LDFLAGS="%{rpmldflags} -Wl,--as-needed"
+%{__libtoolize}
+%{__aclocal}
+%{__automake}
+%{__autoconf}
 %configure
 %{__make}
 
