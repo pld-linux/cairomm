@@ -1,23 +1,18 @@
-#
-%define		snap 20060818
-#
 Summary:	C++ wrapper for cairo
 Summary(pl):	Interfejs C++ do cairo
 Name:		cairomm
-Version:	1.1.12
-Release:	0.%{snap}.1
+Version:	1.2.0
+Release:	1
 License:	LGPL v2+
 Group:		Libraries
-#Source0:	http://cairographics.org/releases/%{name}-%{version}.tar.gz
-#Source0:	http://cairographics.org/snapshots/%{name}-%{version}.tar.gz
-Source0:	%{name}-%{version}-%{snap}.tar.bz2
-# Source0-md5:	09d535bee7ca253c9a4a7292917f4c7b
+Source0:	http://cairographics.org/releases/%{name}-%{version}.tar.gz
+# Source0-md5:	ee326b8e7cb7eeb843fa56412eb162de
 URL:		http://cairographics.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	cairo-devel >= 1.2.2
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
