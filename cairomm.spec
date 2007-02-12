@@ -1,5 +1,5 @@
 Summary:	C++ wrapper for cairo
-Summary(pl.UTF-8):   Interfejs C++ do cairo
+Summary(pl.UTF-8):	Interfejs C++ do cairo
 Name:		cairomm
 Version:	1.2.4
 Release:	1
@@ -24,7 +24,7 @@ Interfejs C++ do cairo.
 
 %package devel
 Summary:	Development files for cairomm library
-Summary(pl.UTF-8):   Pliki programistyczne biblioteki cairomm
+Summary(pl.UTF-8):	Pliki programistyczne biblioteki cairomm
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	cairo-devel >= 1.2.2
@@ -38,7 +38,7 @@ Pliki programistyczne biblioteki cairomm.
 
 %package static
 Summary:	Static cairomm library
-Summary(pl.UTF-8):   Statyczna biblioteka cairomm
+Summary(pl.UTF-8):	Statyczna biblioteka cairomm
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
