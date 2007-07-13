@@ -1,19 +1,20 @@
 Summary:	C++ wrapper for cairo
 Summary(pl.UTF-8):	Interfejs C++ do cairo
 Name:		cairomm
-Version:	1.2.4
-Release:	2
+Version:	1.4.0
+Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://cairographics.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	5d862facfbd0098c9bae618b61f7c8e6
+# Source0-md5:	da52ddb0b0246f6da0ebb19bdc4d8fd1
 URL:		http://cairographics.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	cairo-devel >= 1.2.2
+BuildRequires:	cairo-devel >= 1.4.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	pkgconfig
+Requires:	cairo >= 1.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,7 +28,7 @@ Summary:	Development files for cairomm library
 Summary(pl.UTF-8):	Pliki programistyczne biblioteki cairomm
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	cairo-devel >= 1.2.2
+Requires:	cairo-devel >= 1.4.0
 Requires:	libstdc++-devel
 
 %description devel
@@ -53,7 +54,7 @@ Statyczna biblioteka cairomm.
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__automake}
 %{__autoconf}
 %configure
@@ -75,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog
+%doc AUTHORS ChangeLog MAINTAINERS NEWS README
 %attr(755,root,root) %{_libdir}/libcairomm-1.0.so.*.*.*
 
 %files devel
