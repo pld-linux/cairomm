@@ -1,12 +1,12 @@
 Summary:	C++ wrapper for cairo
 Summary(pl.UTF-8):	Interfejs C++ do cairo
 Name:		cairomm
-Version:	1.4.6
+Version:	1.4.8
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://cairographics.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	8f5a63f01fb4c52a731a27dd0a521413
+# Source0-md5:	2b2025b3555fa1665d92cf9f9be1a4d3
 URL:		http://cairographics.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -78,6 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog MAINTAINERS NEWS README
 %attr(755,root,root) %{_libdir}/libcairomm-1.0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libcairomm-1.0.so.1
 
 %files devel
 %defattr(644,root,root,755)
