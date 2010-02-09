@@ -1,21 +1,23 @@
 Summary:	C++ wrapper for cairo
 Summary(pl.UTF-8):	Interfejs C++ do cairo
 Name:		cairomm
-Version:	1.8.2
+Version:	1.8.4
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://cairographics.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	24aa46a4f92bdb2af7cd80e6b335f07f
+# Source0-md5:	559afbc47484ba3fad265e38a3dafe90
+Patch0:		%{name}-typo.patch
 URL:		http://cairographics.org/
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	autoconf >= 2.62
+BuildRequires:	automake >= 1:1.10
 BuildRequires:	cairo-devel >= 1.8.0
 BuildRequires:	doxygen
 BuildRequires:	graphviz
 BuildRequires:	libsigc++-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
+BuildRequires:	mm-common
 BuildRequires:	pkgconfig
 Requires:	cairo >= 1.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -54,13 +56,15 @@ Statyczna biblioteka cairomm.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
-%{__aclocal} -I m4
+%{__aclocal} -I build
 %{__automake}
 %{__autoconf}
-%configure
+%configure \
+	--enable-static
 %{__make}
 
 %install
@@ -69,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_docdir}/libcairomm-1.0
+rm -rf $RPM_BUILD_ROOT%{_docdir}/cairomm-1.0
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -87,6 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc docs/reference/html/*
 %attr(755,root,root) %{_libdir}/libcairomm-1.0.so
+%{_libdir}/cairomm-1.0
 %{_libdir}/libcairomm-1.0.la
 %{_includedir}/cairomm-1.0
 %{_pkgconfigdir}/cairomm-1.0.pc
