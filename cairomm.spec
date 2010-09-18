@@ -14,7 +14,7 @@ BuildRequires:	automake >= 1:1.10
 BuildRequires:	cairo-devel >= 1.8.0
 BuildRequires:	doxygen
 BuildRequires:	graphviz
-BuildRequires:	libsigc++-devel
+BuildRequires:	libsigc++-devel >= 2.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	mm-common
@@ -34,7 +34,7 @@ Summary(pl.UTF-8):	Pliki programistyczne biblioteki cairomm
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	cairo-devel >= 1.8.0
-Requires:	libstdc++-devel
+Requires:	libsigc++-devel >= 2.0
 
 %description devel
 Development files for cairomm library.
