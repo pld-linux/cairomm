@@ -91,8 +91,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc docs/reference/html/*
 %attr(755,root,root) %{_libdir}/libcairomm-1.0.so
-%{_libdir}/cairomm-1.0
 %{_libdir}/libcairomm-1.0.la
+%{_libdir}/cairomm-1.0
 %{_includedir}/cairomm-1.0
 %{_pkgconfigdir}/cairomm-1.0.pc
 %{_pkgconfigdir}/cairomm-ft-1.0.pc
