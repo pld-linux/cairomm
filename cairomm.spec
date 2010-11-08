@@ -1,13 +1,12 @@
 Summary:	C++ wrapper for cairo
 Summary(pl.UTF-8):	Interfejs C++ do cairo
 Name:		cairomm
-Version:	1.8.4
+Version:	1.9.6
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://cairographics.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	559afbc47484ba3fad265e38a3dafe90
-Patch0:		%{name}-typo.patch
+# Source0-md5:	f0c0b03142b67d798e781e3f40dea456
 URL:		http://cairographics.org/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.10
@@ -56,7 +55,6 @@ Statyczna biblioteka cairomm.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
