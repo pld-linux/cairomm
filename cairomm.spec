@@ -16,7 +16,7 @@ BuildRequires:	graphviz
 BuildRequires:	libsigc++-devel >= 2.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
-BuildRequires:	mm-common
+BuildRequires:	mm-common >= 0.8
 BuildRequires:	pkgconfig
 Requires:	cairo >= 1.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
