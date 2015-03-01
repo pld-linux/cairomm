@@ -2,7 +2,7 @@ Summary:	C++ wrapper for cairo
 Summary(pl.UTF-8):	Interfejs C++ do cairo
 Name:		cairomm
 Version:	1.10.0
-Release:	3
+Release:	4
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://cairographics.org/releases/%{name}-%{version}.tar.gz
