@@ -1,24 +1,25 @@
 Summary:	C++ wrapper for cairo
 Summary(pl.UTF-8):	Interfejs C++ do cairo
 Name:		cairomm
-Version:	1.10.0
-Release:	5
+Version:	1.12.0
+Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://cairographics.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	9c63fb1c04c8ecd3c5e6473075b8c39f
+# Source0-md5:	481501be65bcc34a605d6bc0f57a0023
 URL:		http://cairographics.org/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	cairo-devel >= 1.10.0
 BuildRequires:	doxygen
 BuildRequires:	graphviz
-BuildRequires:	libsigc++-devel >= 2.0
-BuildRequires:	libstdc++-devel
+BuildRequires:	libsigc++-devel >= 2.5.1
+BuildRequires:	libstdc++-devel >= 6:4.6
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	mm-common >= 0.8
 BuildRequires:	pkgconfig
-Requires:	cairo >= 1.8.0
+Requires:	cairo >= 1.10.0
+Requires:	libsigc++ >= 2.5.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,8 +33,9 @@ Summary:	Development files for cairomm library
 Summary(pl.UTF-8):	Pliki programistyczne biblioteki cairomm
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	cairo-devel >= 1.8.0
-Requires:	libsigc++-devel >= 2.0
+Requires:	cairo-devel >= 1.10.0
+Requires:	libsigc++-devel >= 2.5.1
+Requires:	libstdc++-devel >= 6:4.6
 
 %description devel
 Development files for cairomm library.
