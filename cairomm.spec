@@ -1,23 +1,30 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static library
+
 Summary:	C++ wrapper for cairo
 Summary(pl.UTF-8):	Interfejs C++ do cairo
 Name:		cairomm
-Version:	1.12.2
+Version:	1.14.2
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	https://www.cairographics.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	9d2282ea34cf9aaa89208bb4bb911909
+Source0:	https://www.cairographics.org/releases/%{name}-%{version}.tar.xz
+# Source0-md5:	fbcaad2d3756b42592fe8c92b39945f5
 URL:		https://www.cairographics.org/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	cairo-devel >= 1.10.0
-BuildRequires:	doxygen
+BuildRequires:	doxygen >= 1:1.8.9
 BuildRequires:	graphviz
 BuildRequires:	libsigc++-devel >= 1:2.5.1
 BuildRequires:	libstdc++-devel >= 6:4.6
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	mm-common >= 0.8
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.750
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	cairo >= 1.10.0
 Requires:	libsigc++ >= 1:2.5.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -59,7 +66,7 @@ Statyczna biblioteka cairomm.
 Summary:	cairomm API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki cairomm
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
+%if "%{_ver_ge '%{_rpmversion}' '4.6'}" == "1"
 BuildArch:	noarch
 %endif
 
@@ -73,12 +80,14 @@ Dokumentacja API biblioteki cairomm.
 %setup -q
 
 %build
+mm-common-prepare --copy --force
 %{__libtoolize}
 %{__aclocal} -I build
-%{__automake}
 %{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
-	--enable-static
+	%{?with_static_libs:--enable-static}
 %{__make}
 
 %install
@@ -115,9 +124,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/cairomm-xlib-1.0.pc
 %{_pkgconfigdir}/cairomm-xlib-xrender-1.0.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libcairomm-1.0.a
+%endif
 
 %files apidocs
 %defattr(644,root,root,755)
