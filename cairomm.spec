@@ -87,6 +87,7 @@ mm-common-prepare --copy --force
 %{__autoheader}
 %{__automake}
 %configure \
+	--disable-silent-rules \
 	%{?with_static_libs:--enable-static}
 %{__make}
 
