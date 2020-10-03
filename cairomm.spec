@@ -14,19 +14,19 @@ Source0:	https://www.cairographics.org/releases/%{name}-%{version}.tar.xz
 URL:		https://www.cairographics.org/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	cairo-devel >= 1.10.0
+BuildRequires:	cairo-devel >= 1.12.0
 BuildRequires:	doxygen >= 1:1.8.9
 BuildRequires:	graphviz
-BuildRequires:	libsigc++-devel >= 1:2.5.1
+BuildRequires:	libsigc++-devel >= 1:2.6.0
 BuildRequires:	libstdc++-devel >= 6:4.6
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	mm-common >= 0.8
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.750
+BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	cairo >= 1.10.0
-Requires:	libsigc++ >= 1:2.5.1
+Requires:	cairo >= 1.12.0
+Requires:	libsigc++ >= 1:2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,8 +40,8 @@ Summary:	Development files for cairomm library
 Summary(pl.UTF-8):	Pliki programistyczne biblioteki cairomm
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	cairo-devel >= 1.10.0
-Requires:	libsigc++-devel >= 1:2.5.1
+Requires:	cairo-devel >= 1.12.0
+Requires:	libsigc++-devel >= 1:2.6.0
 Requires:	libstdc++-devel >= 6:4.6
 
 %description devel
@@ -66,9 +66,7 @@ Statyczna biblioteka cairomm.
 Summary:	cairomm API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki cairomm
 Group:		Documentation
-%if "%{_ver_ge '%{_rpmversion}' '4.6'}" == "1"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description apidocs
 API and internal documentation for cairomm library.
