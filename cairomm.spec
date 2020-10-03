@@ -1,3 +1,4 @@
+# NOTE: for versions >= 1.16 (API 1.16) see cairomm1.16.spec
 #
 # Conditional build:
 %bcond_without	static_libs	# static library
@@ -5,6 +6,7 @@
 Summary:	C++ wrapper for cairo
 Summary(pl.UTF-8):	Interfejs C++ do cairo
 Name:		cairomm
+# keep 1.14.x here (API 1.0), see note above
 Version:	1.14.2
 Release:	1
 License:	LGPL v2+
