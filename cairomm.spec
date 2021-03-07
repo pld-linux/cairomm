@@ -68,7 +68,7 @@ Statyczna biblioteka cairomm.
 Summary:	cairomm API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki cairomm
 Group:		Documentation
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description apidocs
 API and internal documentation for cairomm library.
