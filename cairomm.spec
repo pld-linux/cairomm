@@ -18,7 +18,6 @@ BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	cairo-devel >= 1.12.0
 BuildRequires:	doxygen >= 1:1.8.9
-BuildRequires:	graphviz
 BuildRequires:	libsigc++-devel >= 1:2.6.0
 BuildRequires:	libstdc++-devel >= 6:4.6
 BuildRequires:	libtool >= 2:1.5
